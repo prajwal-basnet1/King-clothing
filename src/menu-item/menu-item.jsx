@@ -1,11 +1,17 @@
 import {React} from 'react';
 import './menu-item.scss'
-export function MenuItem({title,image,id,size}) {
+import { useNavigate,BrowserRouter,Route,Routes } from 'react-router-dom';
 
+
+
+export function MenuItem({title,image,id,size}) {
+    const navigate=useNavigate()
 return(
 
     <div 
-    className={`${size} menu-item`}>
+    className={`${size} menu-item`}
+    onClick={()=>navigate(`${title.toLowerCase()}`)} 
+    >
         <div className='background-image' 
         style={{
             backgroundImage:`Url(${image})`

@@ -5,11 +5,6 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const Hatspage=()=>{
-    return(
-        <h1>Welcome to Hats page</h1>
-    )
-}
 
 root.render(
   <React.StrictMode>

@@ -1,0 +1,24 @@
+.preview{
+    display: flex;
+    gap:25px;
+    font-size: 20px;
+}
+.product-image{
+    width: 280px;
+    height: 350px;
+    margin-bottom: 10px;
+}
+
+.product-image:hover{
+    opacity: 0.8;
+}
+.product-chart{
+    display: flex;
+    justify-content: space-between;
+    display: flex;
+}
+.product-price{
+    display: float;
+    float: right;
+    width: 10%;
+}

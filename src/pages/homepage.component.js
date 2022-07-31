@@ -9,6 +9,8 @@ import {Womens} from '../sector/women'
 import Shop from '../shop/shop.component'
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import {Sharelayout} from '../sharelayout/sharelayout'
+import { SignInPage } from '../singin/singinPage'
+
 
 export function Homepage() {
 
@@ -18,7 +20,8 @@ return(
     <Router>
     <Routes>
         <Route path="/" element={<Sharelayout/>}>
-            <Route index path="/" element={<Directory/> }></Route> 
+            <Route index path="/" element={<Directory/> }></Route>
+            <Route path="signin" element={<SignInPage/>}></Route>
             <Route path="shop" element={<Shop/>}></Route>
             <Route path="hats" element={<Hats/>}></Route>
             <Route path="jackets" element={<Jackets/>}></Route>

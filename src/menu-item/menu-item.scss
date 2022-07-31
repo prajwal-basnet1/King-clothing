@@ -1,6 +1,6 @@
 .menu-item{
-min-width: 30%;
-height: 240px;
+width: clamp(10%,25%,40%);
+height: clamp(100px,300px,350px);
 display: flex;
 align-items: center;
 justify-content: center;
@@ -32,8 +32,8 @@ overflow: hidden;
 
     &.large{
         height: 370px;
-
     }
+        
 
     &:first-child{
         margin-right: 7.5px;
@@ -43,9 +43,10 @@ overflow: hidden;
     }
 
     .content{
-        height: 20%;
+        height: clamp(6%,11%,25%);
+        width: clamp(5%,11%,25%);
         border: 1px solid black;
-        padding: 0 25px;
+        padding: 0px 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -58,14 +59,37 @@ overflow: hidden;
     .title{
         font-weight: bold;
         margin-bottom: 6px;
-        font-size: 22px;
+        font-size: 20px;
         color: #4a4a4a;
 
     }
     .subtitle{
         font-weight: lighter;
-        font-size: 16px;
+        font-size: 14px;
+        padding-bottom: 15px;
     }
 
 
 }
+@media screen and (max-width:600px) {
+    .menu-item{
+       height: clamp(80px,180px,200px);
+       &.large{
+           height:250px;
+       }
+    }
+    .menu-item .content{
+        width: clamp(5%,14%,18%);
+        height: 6%;
+        padding: 10px;
+    }
+    .menu-item .title{
+        font-size: clamp(10px,18px,25px);
+    }
+    .menu-item .subtitle{
+        font-size:clamp(7px,8px,16px);
+        font-weight:600;
+        font-size: clamp(8px,11px,24px);
+    }
+}
+    

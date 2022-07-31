@@ -1,0 +1,15 @@
+.sign-in{
+    width: 30vw;
+}
+
+@media screen and (max-width:700px) {
+    .sign-in{
+        width: 50vw;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .sign-in{
+        width: 60vw;
+    }
+}

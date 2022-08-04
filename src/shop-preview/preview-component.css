@@ -3,12 +3,29 @@
     gap:25px;
     font-size: 20px;
 }
+.product-container{
+    margin-bottom: 50px;
+}
 .product-image{
-    width: 280px;
-    height: 350px;
+    width: clamp(1em,100%,450px);
+    height: clamp(1em,100%,450px);
     margin-bottom: 10px;
 }
-
+.product-list{
+    font-size: 1rem;
+}
+@media screen and (min-width:1000px)   {
+    .product-list{
+        font-size: 25px;
+    }
+}
+/*
+@media screen and (max-width:750px) {
+    .product-list{
+        font-size: 10px;
+    }
+}
+*/
 .product-image:hover{
     opacity: 0.8;
 }
@@ -20,5 +37,7 @@
 .product-price{
     display: float;
     float: right;
-    width: 10%;
+    width: 5%;
+    margin-right: 20px;
+    margin-left: 5px;
 }

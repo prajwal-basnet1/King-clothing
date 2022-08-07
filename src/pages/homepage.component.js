@@ -11,15 +11,14 @@ import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import {Sharelayout} from '../sharelayout/sharelayout'
 import { SignInPage } from '../singin/singinPage'
 
-
-export function Homepage() {
+export function Homepage({currentstatus}) {
 
 return(
-
     <div className='homePage'>
     <Router>
     <Routes>
-        <Route path="/" element={<Sharelayout/>}>
+
+        <Route path="/"  element={<Sharelayout currentstatus={currentstatus}/>}>
             <Route index path="/" element={<Directory/> }></Route>
             <Route path="signin" element={<SignInPage/>}></Route>
             <Route path="shop" element={<Shop/>}></Route>
@@ -35,26 +34,9 @@ return(
 
     </div>
 
-
-
-
-
 )
 
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

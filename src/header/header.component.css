@@ -10,9 +10,8 @@
     width: 70%;
     padding:35px;
 }
-
-.options{
-    width: 40%;
+.header-options{
+    width: 80%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -21,6 +20,8 @@
 .option{
     padding: 10px 15px;
     color: black;
-    font-size: 22px;
+    font-size: 26px;
     text-decoration: none;
+    display: inline;
+    width: 100px;
 }

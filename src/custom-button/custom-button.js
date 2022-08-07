@@ -3,10 +3,10 @@ import './custom-button.css'
 
 
 
-export const CustomButton=({children,...otherprops})=>{
+export const CustomButton=({children,isGoogleSignIn,...otherprops})=>{
     return(
 
-    <button className="custom-button" {...otherprops}>
+    <button className={`${isGoogleSignIn?'google-sign-in':''} custom-button`} {...otherprops} >
         {children}
     </button>
     )

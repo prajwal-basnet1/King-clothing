@@ -15,7 +15,7 @@
     width: fit-content;
 }
 .custom-button:first-child{
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .custom-button:hover{
@@ -28,3 +28,28 @@
     justify-content: space-between;
     width: 100%;
 }
+
+.google-sign-in{
+    background-color: #4285f4;
+    color:white;
+}
+.google-sign-in:hover{
+    background-color: #3578e8;
+    color:white;
+    border: none;
+}
+
+@media screen and ( max-width:480px) {
+    .custom-button{
+        font-size: 12px;
+        min-width: 60px;
+        padding: 0px 15px ;
+    }    
+}
+@media screen and (min-width:480px) {
+    .custom-button{
+        font-size: 14px;
+        padding: 0px 10px;
+    }
+}
+    

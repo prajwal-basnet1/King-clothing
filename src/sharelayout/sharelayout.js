@@ -4,8 +4,8 @@ export const Sharelayout=({currentstatus})=>{
 
 return(
     <>
-   <Navbar currentstatus={currentstatus}/> 
-   <Outlet/>
+    <Navbar currentstatus={currentstatus}></Navbar>
+    <Outlet/>
     </>
 
 

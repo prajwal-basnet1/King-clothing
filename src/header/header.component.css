@@ -11,17 +11,25 @@
     padding:35px;
 }
 .header-options{
-    width: 80%;
+    width: 70%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 .option{
+    min-width:fit-content;
+    margin-right: 8px;
     padding: 10px 15px;
     color: black;
     font-size: 26px;
     text-decoration: none;
     display: inline;
-    width: 100px;
 }
+
+@media screen and (max-width:400px) {
+    .option{
+        font-size: 16px;
+    }
+}
+    

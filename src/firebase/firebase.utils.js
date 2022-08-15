@@ -1,5 +1,6 @@
 import {initializeApp} from 'firebase/app'
 import {getAuth,GoogleAuthProvider,signInWithPopup} from 'firebase/auth'
+import {getFirestore,getDoc,doc, collection, setDoc} from 'firebase/firestore'
 
 
 const firebaseConfig = {
@@ -15,8 +16,33 @@ const firebaseConfig = {
 const app=initializeApp(firebaseConfig)
 
 export const auth= getAuth(app)
+export const db= getFirestore()
+
+export const createUserProfile = async (userAuth,additionalData)=>{
+  if(!userAuth) return;
+  const docReference=collection(db,"users")
+  const userRef=doc(docReference,`${userAuth.uid}`)
+  const snapShot=await getDoc(userRef)
+
+  if(!snapShot.exists()) {
+    const {displayName,email} = userAuth
+    const createdAt =new Date()
+    try{
+      await setDoc(userRef,{
+        displayName,
+        email,
+        createdAt,
+        ...additionalData
+    })
+    }
+    catch(error) {
+      console.log("Error creating user: "+error)
+    }
+
+  }
+  return userRef
+}
 
 const provider= new GoogleAuthProvider();
-
 export const signInWithGoogle = () => signInWithPopup(auth,provider)
 

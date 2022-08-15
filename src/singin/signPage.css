@@ -1,4 +1,7 @@
 .Signin-page{
     margin-right:auto;
     margin-left: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }

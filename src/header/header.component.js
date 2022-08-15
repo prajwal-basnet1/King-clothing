@@ -16,8 +16,9 @@ return(
         <div className="header-options">
             <Link to="shop" className='option'>SHOP</Link>
             {currentstatus?
-            <div className="option"  onClick={()=>{auth.signOut()}}>Sign Out </div>     :
-            <Link className="option" to="/signIn">Sign In</Link>
+            <div className="option"  onClick={()=>{auth.signOut()}}>SIGN OUT </div>     
+            :
+            <Link className="option" to="/signIn">SIGN IN</Link>
         }
         </div>
 

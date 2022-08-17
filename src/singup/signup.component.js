@@ -4,6 +4,7 @@ import {CustomButton} from '../custom-button/custom-button'
 import {auth} from '../firebase/firebase.utils'
 import {createUserWithEmailAndPassword} from 'firebase/auth'
 import {createUserProfile} from '../firebase/firebase.utils'
+import { useNavigate } from 'react-router-dom'
 import './signup.component.css'
 
 
@@ -13,7 +14,9 @@ export function SignUp( {visibility}) {
     const [confirmPassword,setConfirmPassword]=useState('')
     const [displayName,setDisplayName]=useState('')
 
-    const handleSubmit=async event=>{
+    const navigate=useNavigate()
+
+    const HandleSubmit=async event=>{
         event.preventDefault()
         if(password!==confirmPassword) {
             alert("Password do not match")
@@ -23,11 +26,13 @@ export function SignUp( {visibility}) {
         try{
             const {user} = await createUserWithEmailAndPassword(auth,email,password)
             await createUserProfile(user,{displayName})
+            
 
             setEmail("")
             setPassword("")
             setConfirmPassword("")
             setDisplayName("")
+            navigate("/")
 
         }
 
@@ -44,7 +49,7 @@ export function SignUp( {visibility}) {
                 I do not have an account
             </h2>
             <span>Sign up with your email and password</span>
-            <form className='sign-up-form' onSubmit={handleSubmit}>
+            <form className='sign-up-form' onSubmit={HandleSubmit}>
 
                 <FormInput type="text" 
                 name='displayname' 

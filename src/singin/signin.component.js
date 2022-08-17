@@ -4,8 +4,13 @@ import './singin-component.css'
 import {CustomButton} from '../custom-button/custom-button'
 import {signInWithGoogle} from '../firebase/firebase.utils'
 import { NavLink } from 'react-router-dom'
+import {auth} from '../firebase/firebase.utils'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import {useNavigate} from 'react-router-dom'
 
-class SignIn extends Component {
+
+
+class SignInClass extends Component {
 
     constructor(props) {
         super(props)
@@ -16,12 +21,19 @@ class SignIn extends Component {
         }
     }
 
-    handleSubmit=(event)=>{
+    handleSubmit=async (event)=>{
         event.preventDefault()
-        this.setState({
-            email:'',
-            password:''
-        })
+        const {email,password} = this.state
+
+        try{
+            await signInWithEmailAndPassword(auth,email,password)
+            this.setState({email:'',password:''})
+            this.props.navigation("/")
+        }
+        catch(error) {
+            console.log(error)
+        }
+
 
     }
     handleChange=(event)=>{
@@ -40,7 +52,6 @@ render() {
 
             <h1>I already have an account</h1>
             <span>Sign in with your email and password</span>
-
             <form onSubmit={this.handleSubmit}>
 
                 <FormInput name="email" type="email" handleChange={this.handleChange} value={this.state.email} label="Email" required/>
@@ -60,4 +71,12 @@ render() {
 }
 
 }
+
+function SignIn() {
+    const navigation=useNavigate()
+    return(
+        <SignInClass navigation={navigation}></SignInClass>
+    )
+}
+
 export default SignIn
